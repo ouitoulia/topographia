@@ -1,0 +1,17 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - node.type.luogo
+id: node.luogo.title
+field_name: title
+entity_type: node
+bundle: luogo
+label: 'Nome del luogo'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
