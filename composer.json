@@ -1,0 +1,24 @@
+{
+  "name": "ouitoulia/topographia",
+  "description": "Topographía gestisce il tipo di contenuto Luogo dell'architettura dei contenuti delle Scuole.",
+  "type": "drupal-module",
+  "license": "GPL-3.0-only",
+  "homepage": "https://github.com/ouitoulia/topographia",
+  "authors": [
+    {
+      "name": "Pietro Arturo Panetta",
+      "homepage":"https://www.drupal.org/u/arturopanetta",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/ouitoulia/topographia/issues",
+    "source": "https://github.com/ouitoulia/topographia"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "drupal/core-recommended": "^10",
+    "ouitoulia/themelion": "^1.0"
+  }
+}

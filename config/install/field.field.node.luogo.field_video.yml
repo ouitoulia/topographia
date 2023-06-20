@@ -1,0 +1,28 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video
+    - media.type.remote_video
+    - node.type.luogo
+id: node.luogo.field_video
+field_name: field_video
+entity_type: node
+bundle: luogo
+label: Video
+description: 'Seleziona o inserisci dalla libreria uno o più video rappresentativi del luogo descritto.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      remote_video: remote_video
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

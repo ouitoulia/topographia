@@ -1,0 +1,13 @@
+name: "Topographía"
+description: "Topographía gestisce il tipo di contenuto Luogo dell'architettura dei contenuti delle Scuole."
+package: "Ouitoulía"
+
+type: module
+core_version_requirement: ^10
+dependencies:
+  - drupal:field
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:text
+  - drupal:media
+  - drupal:media_library

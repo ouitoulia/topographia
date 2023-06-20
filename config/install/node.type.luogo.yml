@@ -1,0 +1,10 @@
+langcode: it
+status: true
+dependencies: {  }
+name: Luogo
+type: luogo
+description: "Contenuto relativo ai luoghi in cui si svolge l'attività scolastica. I luoghi possono essere sede di <em>strutture</em> e <em>canali fisici di erogazione di un servizio</em>. "
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

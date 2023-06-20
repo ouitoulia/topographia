@@ -1,0 +1,18 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_abstract
+    - node.type.luogo
+id: node.luogo.field_abstract
+field_name: field_abstract
+entity_type: node
+bundle: luogo
+label: 'Descrizione breve'
+description: 'Descrizione sintetica del luogo. Si consiglia di non superare i 160 caratteri.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

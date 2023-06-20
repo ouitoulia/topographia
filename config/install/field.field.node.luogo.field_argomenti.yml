@@ -1,0 +1,28 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_argomenti
+    - node.type.luogo
+    - taxonomy.vocabulary.argomenti
+id: node.luogo.field_argomenti
+field_name: field_argomenti
+entity_type: node
+bundle: luogo
+label: Argomenti
+description: 'Seleziona uno o più argomenti. Viene usato il vocabolario <a href="/admin/structure/taxonomy/manage/argomenti/overview" title="Visualizza la lista dei termini" target="_blank">Le parole della scuola</a>. Nel caso in cui non riesci ad inserire nuovi termini e/o a visualizzarli chiedi al responsabile del sito la modifica dei relativi permessi.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      argomenti: argomenti
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
