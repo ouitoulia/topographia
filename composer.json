@@ -19,6 +19,6 @@
   "prefer-stable": true,
   "require": {
     "drupal/core-recommended": "^10",
-    "ouitoulia/themelion": "^1.0"
+    "ouitoulia/themethla": "^1.0"
   }
 }

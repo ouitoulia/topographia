@@ -11,3 +11,4 @@ dependencies:
   - drupal:text
   - drupal:media
   - drupal:media_library
+  - ouitoulia:themethla
