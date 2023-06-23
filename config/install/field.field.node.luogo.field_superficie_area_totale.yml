@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_superficie_area_totale
+    - node.type.luogo
+id: node.luogo.field_superficie_area_totale
+field_name: field_superficie_area_totale
+entity_type: node
+bundle: luogo
+label: 'Superficie area totale'
+description: " Superficie totale dell'area in m²."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: m²
+field_type: integer

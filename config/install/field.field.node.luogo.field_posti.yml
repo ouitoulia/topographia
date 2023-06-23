@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_posti
+    - node.type.luogo
+id: node.luogo.field_posti
+field_name: field_posti
+entity_type: node
+bundle: luogo
+label: 'Posti a sedere'
+description: 'Indicare il numero di posti a sedere se il luogo prevede delle sedute (come ad esempio un auditorium, un aula magna, un teatro, etc.)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

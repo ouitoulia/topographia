@@ -1,0 +1,20 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_telefono
+    - node.type.luogo
+  module:
+    - telephone
+id: node.luogo.field_telefono
+field_name: field_telefono
+entity_type: node
+bundle: luogo
+label: Telefono
+description: 'Inserisci uno o più numeri di telefono.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

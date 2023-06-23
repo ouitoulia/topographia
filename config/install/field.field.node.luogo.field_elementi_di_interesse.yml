@@ -1,0 +1,80 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_elementi_di_interesse
+    - node.type.luogo
+    - paragraphs.paragraphs_type.content
+    - paragraphs.paragraphs_type.node_reference
+  module:
+    - entity_reference_revisions
+id: node.luogo.field_elementi_di_interesse
+field_name: field_elementi_di_interesse
+entity_type: node
+bundle: luogo
+label: 'Elementi di interesse del luogo'
+description: "Usa <em>Aggiungi contenuto</em> per inserire la descrizione  di un elemento di interesse presente nel luogo, se l'elemento d'interesse è a sua volta un luogo usa <em>Aggiungi node reference</em> per collegare il luogo.  Si ripete per ciascun elemento d'interesse."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      content: content
+      node_reference: node_reference
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: -33
+        enabled: false
+      accordion_item:
+        weight: -32
+        enabled: false
+      attachments:
+        weight: -31
+        enabled: false
+      callout:
+        weight: -30
+        enabled: false
+      carousel:
+        weight: -29
+        enabled: false
+      citation:
+        weight: -28
+        enabled: false
+      content:
+        weight: -35
+        enabled: true
+      gallery:
+        weight: -27
+        enabled: false
+      gallery_item:
+        weight: -26
+        enabled: false
+      hero:
+        weight: -25
+        enabled: false
+      map:
+        weight: -24
+        enabled: false
+      node_reference:
+        weight: -34
+        enabled: true
+      section:
+        weight: -23
+        enabled: false
+      settings:
+        weight: -22
+        enabled: false
+      slide:
+        weight: -21
+        enabled: false
+      timeline:
+        weight: -20
+        enabled: false
+      timeline_item:
+        weight: -19
+        enabled: false
+field_type: entity_reference_revisions

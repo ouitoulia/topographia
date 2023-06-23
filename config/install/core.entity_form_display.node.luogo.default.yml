@@ -1,0 +1,482 @@
+uuid: d604df11-909f-48b8-afda-836901af123d
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.node.luogo.body
+    - field.field.node.luogo.field_abstract
+    - field.field.node.luogo.field_anno_adattamento
+    - field.field.node.luogo.field_anno_costruzione
+    - field.field.node.luogo.field_argomenti
+    - field.field.node.luogo.field_attributi_luogo
+    - field.field.node.luogo.field_codice_catastale_comune
+    - field.field.node.luogo.field_codice_identificativo
+    - field.field.node.luogo.field_coordinate_geografiche
+    - field.field.node.luogo.field_copertina
+    - field.field.node.luogo.field_destinazione_uso
+    - field.field.node.luogo.field_elementi_di_interesse
+    - field.field.node.luogo.field_email
+    - field.field.node.luogo.field_extra_info
+    - field.field.node.luogo.field_galleria_immagini
+    - field.field.node.luogo.field_indirizzo
+    - field.field.node.luogo.field_numero_piani
+    - field.field.node.luogo.field_orario_pubblico
+    - field.field.node.luogo.field_posti
+    - field.field.node.luogo.field_prenotabile
+    - field.field.node.luogo.field_superficie_area_libera
+    - field.field.node.luogo.field_superficie_area_totale
+    - field.field.node.luogo.field_telefono
+    - field.field.node.luogo.field_tipologia_luogo
+    - field.field.node.luogo.field_uso_scolastico
+    - field.field.node.luogo.field_video
+    - field.field.node.luogo.field_volume
+    - node.type.luogo
+  module:
+    - address
+    - field_group
+    - leaflet
+    - media_library
+    - office_hours
+    - paragraphs
+    - path
+    - telephone
+    - text
+third_party_settings:
+  field_group:
+    group_luogo:
+      children:
+        - group_descrizione
+        - group_dove_si_trova
+        - group_ulteriori_informazioni
+      label: Luogo
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_descrizione:
+      children:
+        - field_abstract
+        - field_argomenti
+        - field_tipologia_luogo
+        - field_copertina
+        - field_video
+        - field_galleria_immagini
+        - body
+        - field_elementi_di_interesse
+      label: Descrizione
+      region: content
+      parent_name: group_luogo
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_dove_si_trova:
+      children:
+        - field_indirizzo
+        - field_coordinate_geografiche
+        - field_orario_pubblico
+        - field_email
+        - field_telefono
+        - field_attributi_luogo
+      label: 'Dove si trova'
+      region: content
+      parent_name: group_luogo
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_ulteriori_informazioni:
+      children:
+        - field_extra_info
+        - field_prenotabile
+        - field_posti
+        - field_anno_costruzione
+        - field_numero_piani
+        - field_codice_identificativo
+        - field_codice_catastale_comune
+        - field_uso_scolastico
+        - field_destinazione_uso
+        - field_anno_adattamento
+        - field_superficie_area_totale
+        - field_superficie_area_libera
+        - field_volume
+      label: 'Ulteriori informazioni'
+      region: content
+      parent_name: group_luogo
+      weight: 22
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+id: node.luogo.default
+targetEntityType: node
+bundle: luogo
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 8
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_abstract:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_anno_adattamento:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_anno_costruzione:
+    type: number
+    weight: 9
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_argomenti:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_attributi_luogo:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_codice_catastale_comune:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_codice_identificativo:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_coordinate_geografiche:
+    type: leaflet_widget_default
+    weight: 17
+    region: content
+    settings:
+      map:
+        leaflet_map: 'OSM Mapnik'
+        height: 400
+        auto_center: 1
+        map_position:
+          force: false
+          center:
+            lat: 0.0
+            lon: 0.0
+          zoomControlPosition: topleft
+          zoom: 12
+          minZoom: 1
+          maxZoom: 18
+          zoomFiner: 0
+        scroll_zoom_enabled: 0
+      input:
+        show: false
+        readonly: false
+      toolbar:
+        position: topright
+        marker: defaultMarker
+        drawPolyline: true
+        drawRectangle: true
+        drawPolygon: true
+        drawCircle: false
+        drawText: false
+        editMode: true
+        dragMode: true
+        cutPolygon: false
+        removalMode: true
+        rotateMode: false
+      reset_map:
+        control: false
+        options: '{"position":"topleft","title":"Reset View"}'
+      map_scale:
+        control: false
+        options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      locate:
+        control: true
+        options: '{"position":"topright","setView":"untilPanOrZoom","returnToPrevBounds":true,"keepCurrentZoomLevel":true,"strings":{"title":"Locate my position"}}'
+        automatic: true
+      geocoder:
+        control: false
+        settings:
+          position: topright
+          input_size: 20
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: false
+          options: ''
+      geometry_validation: 0
+      feature_properties:
+        values: ''
+    third_party_settings: {  }
+  field_copertina:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_destinazione_uso:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_elementi_di_interesse:
+    type: paragraphs
+    weight: 9
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 19
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_extra_info:
+    type: paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_galleria_immagini:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_indirizzo:
+    type: address_default
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_numero_piani:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_orario_pubblico:
+    type: office_hours_default
+    weight: 18
+    region: content
+    settings:
+      collapsed: false
+    third_party_settings: {  }
+  field_posti:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prenotabile:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_superficie_area_libera:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_superficie_area_totale:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_telefono:
+    type: telephone_default
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tipologia_luogo:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uso_scolastico:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_video:
+    type: media_library_widget
+    weight: 6
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_volume:
+    type: number
+    weight: 18
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

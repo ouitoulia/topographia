@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_anno_costruzione
+    - node.type.luogo
+id: node.luogo.field_anno_costruzione
+field_name: field_anno_costruzione
+entity_type: node
+bundle: luogo
+label: 'Anno di costruzione'
+description: "Anno in cui è stato costruito l'edificio."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: 2038
+  prefix: ''
+  suffix: ''
+field_type: integer

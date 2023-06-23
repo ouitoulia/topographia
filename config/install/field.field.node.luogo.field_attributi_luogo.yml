@@ -1,0 +1,28 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attributi_luogo
+    - node.type.luogo
+    - taxonomy.vocabulary.attributi_dei_luoghi
+id: node.luogo.field_attributi_luogo
+field_name: field_attributi_luogo
+entity_type: node
+bundle: luogo
+label: 'Modalità di accesso'
+description: "Elencare parcheggi / ingressi / accessibilità ovvero informazioni relative all'accesso al luogo come la presenza di parcheggi, la presenza di uno solo o di più ingressi, la presenza di strutture e servizi per garantire l'accesso ai disabili, ecc."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      attributi_dei_luoghi: attributi_dei_luoghi
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

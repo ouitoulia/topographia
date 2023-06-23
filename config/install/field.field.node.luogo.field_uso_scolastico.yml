@@ -1,0 +1,20 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_uso_scolastico
+    - node.type.luogo
+id: node.luogo.field_uso_scolastico
+field_name: field_uso_scolastico
+entity_type: node
+bundle: luogo
+label: 'Uso scolastico'
+description: "Indica se l'edificio è stato costruito appositamente per uso scolastico."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Sì
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_anno_adattamento
+    - node.type.luogo
+id: node.luogo.field_anno_adattamento
+field_name: field_anno_adattamento
+entity_type: node
+bundle: luogo
+label: 'Anno adattamento'
+description: "Anno in cui è stato adattato l'edificio per uso scolastico."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

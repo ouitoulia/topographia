@@ -1,0 +1,18 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_codice_catastale_comune
+    - node.type.luogo
+id: node.luogo.field_codice_catastale_comune
+field_name: field_codice_catastale_comune
+entity_type: node
+bundle: luogo
+label: 'Codice comune'
+description: "Codice catastale del Comune in cui si trova l'edificio."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

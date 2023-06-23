@@ -7,8 +7,15 @@ core_version_requirement: ^10
 dependencies:
   - drupal:field
   - drupal:node
-  - drupal:taxonomy
-  - drupal:text
   - drupal:media
   - drupal:media_library
+  - drupal:path
+  - drupal:taxonomy
+  - drupal:telephone
+  - drupal:text
+  - address:address
+  - field_group:field_group
+  - leaflet:leaflet
+  - office_hours:office_hours
+  - paragraphs:paragraphs
   - ouitoulia:themethla

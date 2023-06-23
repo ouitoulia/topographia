@@ -1,0 +1,23 @@
+uuid: af9630b2-451e-46f5-bc82-631da4dbab11
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_volume
+    - node.type.luogo
+id: node.luogo.field_volume
+field_name: field_volume
+entity_type: node
+bundle: luogo
+label: Volume
+description: "Volume lordo dell'edificio."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: m³
+field_type: integer

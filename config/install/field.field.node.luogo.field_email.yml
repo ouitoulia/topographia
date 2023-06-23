@@ -1,0 +1,18 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.luogo
+id: node.luogo.field_email
+field_name: field_email
+entity_type: node
+bundle: luogo
+label: 'Indirizzo email'
+description: "Inserisci uno o più indirizzi email se il luogo ha un indirizzo email dedicato. Ad esempio la sede in cui si trovano i servizi amministrativi ha l'indirizzo <em>aabb000000@istruzione.it</em>."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

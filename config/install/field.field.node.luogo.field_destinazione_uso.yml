@@ -1,0 +1,28 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_destinazione_uso
+    - node.type.luogo
+    - taxonomy.vocabulary.destinazione_uso
+id: node.luogo.field_destinazione_uso
+field_name: field_destinazione_uso
+entity_type: node
+bundle: luogo
+label: 'Altri usi'
+description: 'Indica se l''edificio è stato costruito per altri usi e poi adattato permanentemente per uso scolastico. Viene usato il vocabolario <a href="/admin/structure/taxonomy/manage/destinazione_uso/overview" title="Visualizza la lista dei termini" target="_blank">Destinazione d''uso</a>. Nel caso in cui non riesci ad inserire nuovi termini e/o a visualizzarli chiedi al responsabile del sito la modifica dei relativi permessi.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      destinazione_uso: destinazione_uso
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

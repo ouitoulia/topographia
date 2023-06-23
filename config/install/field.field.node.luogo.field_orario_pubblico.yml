@@ -1,0 +1,20 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_orario_pubblico
+    - node.type.luogo
+  module:
+    - office_hours
+id: node.luogo.field_orario_pubblico
+field_name: field_orario_pubblico
+entity_type: node
+bundle: luogo
+label: 'Orario per il pubblico'
+description: 'Orario di apertura al pubblico del luogo.  '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: office_hours
