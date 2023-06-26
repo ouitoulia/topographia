@@ -1,0 +1,21 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+id: tipo_contenuto_luogo
+label: 'Tipo contenuto Luogo'
+type: 'canonical_entities:node'
+pattern: 'luoghi/[node:title]'
+selection_criteria:
+  152d248e-82f6-4c7d-bba8-5279d4f5ab35:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 152d248e-82f6-4c7d-bba8-5279d4f5ab35
+    context_mapping:
+      node: node
+    bundles:
+      luogo: luogo
+selection_logic: and
+weight: -5
+relationships: {  }
