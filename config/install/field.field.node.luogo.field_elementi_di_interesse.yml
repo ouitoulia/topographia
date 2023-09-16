@@ -23,7 +23,6 @@ settings:
   handler_settings:
     target_bundles:
       content: content
-      node_reference: node_reference
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -61,7 +60,7 @@ settings:
         enabled: false
       node_reference:
         weight: -34
-        enabled: true
+        enabled: false
       section:
         weight: -23
         enabled: false
