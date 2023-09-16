@@ -1,0 +1,186 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.luogo.body
+    - field.field.node.luogo.field_abstract
+    - field.field.node.luogo.field_anno_adattamento
+    - field.field.node.luogo.field_anno_costruzione
+    - field.field.node.luogo.field_argomenti
+    - field.field.node.luogo.field_attributi_luogo
+    - field.field.node.luogo.field_codice_catastale_comune
+    - field.field.node.luogo.field_codice_identificativo
+    - field.field.node.luogo.field_coordinate_geografiche
+    - field.field.node.luogo.field_copertina
+    - field.field.node.luogo.field_destinazione_uso
+    - field.field.node.luogo.field_elementi_di_interesse
+    - field.field.node.luogo.field_email
+    - field.field.node.luogo.field_extra_info
+    - field.field.node.luogo.field_galleria_immagini
+    - field.field.node.luogo.field_indirizzo
+    - field.field.node.luogo.field_numero_piani
+    - field.field.node.luogo.field_orario_pubblico
+    - field.field.node.luogo.field_posti
+    - field.field.node.luogo.field_prenotabile
+    - field.field.node.luogo.field_superficie_area_libera
+    - field.field.node.luogo.field_superficie_area_totale
+    - field.field.node.luogo.field_telefono
+    - field.field.node.luogo.field_tipologia_luogo
+    - field.field.node.luogo.field_uso_scolastico
+    - field.field.node.luogo.field_video
+    - field.field.node.luogo.field_volume
+    - node.type.luogo
+  module:
+    - entity_reference_revisions
+    - geofield
+    - telephone
+    - text
+    - user
+id: node.luogo.full
+targetEntityType: node
+bundle: luogo
+mode: full
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_abstract:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_anno_costruzione:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_argomenti:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_attributi_luogo:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_coordinate_geografiche:
+    type: geofield_default
+    label: hidden
+    settings:
+      output_format: wkt
+      output_escape: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_copertina:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_elementi_di_interesse:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_extra_info:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_numero_piani:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_posti:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_telefono:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_video:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  toc_js:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+hidden:
+  field_anno_adattamento: true
+  field_codice_catastale_comune: true
+  field_codice_identificativo: true
+  field_destinazione_uso: true
+  field_galleria_immagini: true
+  field_indirizzo: true
+  field_orario_pubblico: true
+  field_prenotabile: true
+  field_superficie_area_libera: true
+  field_superficie_area_totale: true
+  field_tipologia_luogo: true
+  field_uso_scolastico: true
+  field_volume: true
+  langcode: true

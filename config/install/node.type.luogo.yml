@@ -1,6 +1,33 @@
 langcode: it
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+    - toc_js
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  toc_js:
+    toc_js_active: 1
+    title: 'Dettagli del luogo'
+    selectors: h2
+    selectors_minimum: '0'
+    container: .node
+    prefix: toc
+    list_type: ul
+    classes: ''
+    back_to_top: 0
+    back_to_top_label: 'Back to top'
+    smooth_scrolling: 1
+    scroll_to_offset: '0'
+    highlight_on_scroll: 1
+    highlight_offset: '100'
+    sticky: 1
+    sticky_offset: '104'
+    sticky_stop: .footer
+    sticky_stop_padding: '0'
 name: Luogo
 type: luogo
 description: "Contenuto relativo ai luoghi in cui si svolge l'attività scolastica. I luoghi possono essere sede di <em>strutture</em> e <em>canali fisici di erogazione di un servizio</em>. "
