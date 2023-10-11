@@ -35,7 +35,6 @@ dependencies:
     - address
     - entity_reference_revisions
     - leaflet
-    - media
     - office_hours
     - telephone
     - text
@@ -248,13 +247,11 @@ content:
     weight: 13
     region: content
   field_galleria_immagini:
-    type: media_thumbnail
+    type: entity_reference_entity_view
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      view_mode: gallery_item
+      link: false
     third_party_settings: {  }
     weight: 14
     region: content
