@@ -14,6 +14,7 @@ dependencies:
   - drupal:telephone
   - drupal:text
   - address:address
+  - conditional_fields:conditional_fields
   - field_group:field_group
   - leaflet:leaflet
   - office_hours:office_hours

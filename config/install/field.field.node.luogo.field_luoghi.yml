@@ -1,0 +1,27 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_luoghi
+    - node.type.luogo
+id: node.luogo.field_luoghi
+field_name: field_luoghi
+entity_type: node
+bundle: luogo
+label: 'Fa parte di'
+description: 'Con questo campo è possibile stabilire una relazione tra il luogo che si sta creando e il luogo che lo contiene. Ad esempio: il luogo palestra è contenuto nel luogo edificio scolastico. Attenzione: se si imposta una dipendenza tra il luogo che si sta creando e il suo luogo genitore, in automatico il luogo che si sta creando si trova allo stesso indirizzo del luogo genitore. Il sistema recupera in automatico le coordinate geografiche del luogo genitore e le associa al luogo che si sta creando, quindi non è necessario compilare i successivi campi presenti in questa scheda. I luoghi genitore devono essere stati precedentemente creati.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      luogo: luogo
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

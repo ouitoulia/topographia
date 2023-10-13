@@ -2,7 +2,7 @@ langcode: it
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.full
+    - core.entity_view_mode.node.card_big
     - field.field.node.luogo.body
     - field.field.node.luogo.field_abstract
     - field.field.node.luogo.field_anno_adattamento
@@ -34,82 +34,15 @@ dependencies:
     - node.type.luogo
   module:
     - address
-    - entity_reference_revisions
     - leaflet
     - office_hours
     - telephone
-    - text
     - user
-id: node.luogo.full
+id: node.luogo.card_big
 targetEntityType: node
 bundle: luogo
-mode: full
+mode: card_big
 content:
-  body:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_abstract:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_anno_adattamento:
-    type: number_integer
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 22
-    region: content
-  field_anno_costruzione:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 16
-    region: content
-  field_argomenti:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_attributi_luogo:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_codice_catastale_comune:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 28
-    region: content
-  field_codice_identificativo:
-    type: string
-    label: inline
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 27
-    region: content
   field_coordinate_geografiche:
     type: leaflet_formatter_default
     label: hidden
@@ -119,8 +52,8 @@ content:
       height: 400
       height_unit: px
       hide_empty_map: false
-      disable_wheel: false
-      gesture_handling: false
+      disable_wheel: true
+      gesture_handling: true
       fitbounds_options: '{"padding":[0,0]}'
       reset_map:
         control: false
@@ -203,83 +136,21 @@ content:
         lazy_load: false
       weight: null
     third_party_settings: {  }
-    weight: 8
-    region: content
-  field_copertina:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_destinazione_uso:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 21
-    region: content
-  field_elementi_di_interesse:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 6
+    weight: 0
     region: content
   field_email:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 10
-    region: content
-  field_extra_info:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 14
-    region: content
-  field_galleria_immagini:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: gallery_item
-      link: false
-    third_party_settings: {  }
-    weight: 15
+    weight: 4
     region: content
   field_indirizzo:
     type: address_plain
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 9
-    region: content
-  field_luoghi:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: card_big
-      link: false
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_numero_piani:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 17
+    weight: 1
     region: content
   field_orario_pubblico:
     type: office_hours
@@ -308,48 +179,11 @@ content:
         date_format: long
         all_day_format: 'All day open'
       timezone_field: ''
-      office_hours_first_day: '1'
+      office_hours_first_day: ''
       schema:
         enabled: true
     third_party_settings: {  }
-    weight: 12
-    region: content
-  field_posti:
-    type: number_integer
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 18
-    region: content
-  field_prenotabile:
-    type: boolean
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 26
-    region: content
-  field_superficie_area_libera:
-    type: number_integer
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 23
-    region: content
-  field_superficie_area_totale:
-    type: number_integer
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 24
+    weight: 2
     region: content
   field_telefono:
     type: telephone_link
@@ -357,53 +191,32 @@ content:
     settings:
       title: ''
     third_party_settings: {  }
-    weight: 11
-    region: content
-  field_tipologia_luogo:
-    type: entity_reference_label
-    label: inline
-    settings:
-      link: false
-    third_party_settings: {  }
-    weight: 19
-    region: content
-  field_uso_scolastico:
-    type: boolean
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 20
-    region: content
-  field_video:
-    type: entity_reference_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_volume:
-    type: number_integer
-    label: inline
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 25
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  toc_js:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 29
+    weight: 3
     region: content
 hidden:
+  body: true
+  field_abstract: true
+  field_anno_adattamento: true
+  field_anno_costruzione: true
+  field_argomenti: true
+  field_attributi_luogo: true
+  field_codice_catastale_comune: true
+  field_codice_identificativo: true
+  field_copertina: true
+  field_destinazione_uso: true
+  field_elementi_di_interesse: true
+  field_extra_info: true
+  field_galleria_immagini: true
+  field_luoghi: true
+  field_numero_piani: true
+  field_posti: true
+  field_prenotabile: true
+  field_superficie_area_libera: true
+  field_superficie_area_totale: true
+  field_tipologia_luogo: true
+  field_uso_scolastico: true
+  field_video: true
+  field_volume: true
   langcode: true
+  links: true
+  toc_js: true

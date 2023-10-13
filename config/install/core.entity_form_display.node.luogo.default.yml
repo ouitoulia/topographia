@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.luogo.field_extra_info
     - field.field.node.luogo.field_galleria_immagini
     - field.field.node.luogo.field_indirizzo
+    - field.field.node.luogo.field_luoghi
     - field.field.node.luogo.field_numero_piani
     - field.field.node.luogo.field_orario_pubblico
     - field.field.node.luogo.field_posti
@@ -32,6 +33,7 @@ dependencies:
     - node.type.luogo
   module:
     - address
+    - conditional_fields
     - field_group
     - leaflet
     - media_library
@@ -82,6 +84,7 @@ third_party_settings:
         required_fields: true
     group_dove_si_trova:
       children:
+        - field_luoghi
         - field_indirizzo
         - field_coordinate_geografiche
         - field_orario_pubblico
@@ -182,7 +185,7 @@ content:
     third_party_settings: {  }
   field_attributi_luogo:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 32
     region: content
     settings:
       match_operator: CONTAINS
@@ -208,7 +211,7 @@ content:
     third_party_settings: {  }
   field_coordinate_geografiche:
     type: leaflet_widget_default
-    weight: 17
+    weight: 28
     region: content
     settings:
       map:
@@ -270,7 +273,45 @@ content:
       geometry_validation: 0
       feature_properties:
         values: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        66a4b7f7-cf94-41a0-95f8-c158920e8a5a:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: '!visible'
+            reset: false
+            condition: '!empty'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: null
+            effect: slide
+            effect_options:
+              fade:
+                speed: '400'
+              slide:
+                speed: '400'
+            selector: ''
+        e0232b55-3d8f-48e1-8d85-e5a1219c29b6:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: required
+            condition: empty
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_copertina:
     type: media_library_widget
     weight: 5
@@ -309,12 +350,50 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 19
+    weight: 30
     region: content
     settings:
       placeholder: ''
       size: 60
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        d139c3c5-fec8-4223-bd82-c0cceee50b78:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: '!visible'
+            reset: false
+            condition: '!empty'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: null
+            effect: slide
+            effect_options:
+              fade:
+                speed: '400'
+              slide:
+                speed: '400'
+            selector: ''
+        3cccb0b3-f278-4605-9051-6912bca0647b:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: required
+            condition: empty
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_extra_info:
     type: paragraphs
     weight: 6
@@ -343,9 +422,57 @@ content:
     third_party_settings: {  }
   field_indirizzo:
     type: address_default
-    weight: 16
+    weight: 27
     region: content
     settings: {  }
+    third_party_settings:
+      conditional_fields:
+        d291d0af-fcf7-44d3-94c9-d577ac13d8e9:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: '!visible'
+            reset: false
+            condition: '!empty'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: null
+            effect: slide
+            effect_options:
+              fade:
+                speed: '400'
+              slide:
+                speed: '400'
+            selector: ''
+        a3ec705d-9b88-482e-91f7-86b31afdfd82:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: required
+            condition: empty
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_luoghi:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_numero_piani:
     type: number
@@ -356,11 +483,52 @@ content:
     third_party_settings: {  }
   field_orario_pubblico:
     type: office_hours_default
-    weight: 18
+    weight: 29
     region: content
     settings:
       collapsed: false
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        b89ab0a4-1f4a-41e3-badf-8b3b56144a48:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: '!visible'
+            reset: false
+            condition: '!empty'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: null
+            effect: slide
+            effect_options:
+              fade:
+                speed: '400'
+              slide:
+                speed: '400'
+            selector: ''
+        622bdb38-e158-4ccd-9c02-ec911bb6026f:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: visible
+            reset: false
+            condition: empty
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: null
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_posti:
     type: number
     weight: 8
@@ -391,11 +559,49 @@ content:
     third_party_settings: {  }
   field_telefono:
     type: telephone_default
-    weight: 20
+    weight: 31
     region: content
     settings:
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        11fe4cff-73f2-415f-9bc1-dd16edbca706:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: '!visible'
+            reset: false
+            condition: '!empty'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: null
+            effect: slide
+            effect_options:
+              fade:
+                speed: '400'
+              slide:
+                speed: '400'
+            selector: ''
+        a6f92f4a-682a-4024-8f3b-bbf6ab8ddebc:
+          entity_type: node
+          bundle: luogo
+          dependee: field_luoghi
+          settings:
+            state: required
+            condition: empty
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_tipologia_luogo:
     type: entity_reference_autocomplete
     weight: 4

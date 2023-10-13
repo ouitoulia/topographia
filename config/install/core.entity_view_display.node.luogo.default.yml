@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.luogo.field_extra_info
     - field.field.node.luogo.field_galleria_immagini
     - field.field.node.luogo.field_indirizzo
+    - field.field.node.luogo.field_luoghi
     - field.field.node.luogo.field_numero_piani
     - field.field.node.luogo.field_orario_pubblico
     - field.field.node.luogo.field_posti
@@ -65,6 +66,7 @@ hidden:
   field_extra_info: true
   field_galleria_immagini: true
   field_indirizzo: true
+  field_luoghi: true
   field_numero_piani: true
   field_orario_pubblico: true
   field_posti: true
@@ -77,3 +79,4 @@ hidden:
   field_video: true
   field_volume: true
   langcode: true
+  toc_js: true
