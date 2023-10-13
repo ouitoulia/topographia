@@ -20,3 +20,4 @@ dependencies:
   - office_hours:office_hours
   - paragraphs:paragraphs
   - ouitoulia:themethla
+  - toc_js:toc_js
