@@ -12,7 +12,7 @@ entity_type: node
 bundle: luogo
 label: 'Posizione GPS'
 description: 'Georeferenziazione del luogo e link a posizione in mappa.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
