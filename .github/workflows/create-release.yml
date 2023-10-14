@@ -32,6 +32,11 @@ jobs:
             version: '${{  github.ref_name }}'
             project: 'topographia'
             datestamp: ${{ steps.date.outputs.datestamp }}
+      - name: Push changes
+        run: |
+          git add topographia.info.yml
+          git commit -m "Update version"
+          git push
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
