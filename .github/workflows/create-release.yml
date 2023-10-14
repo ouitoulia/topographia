@@ -34,6 +34,8 @@ jobs:
             datestamp: ${{ steps.date.outputs.datestamp }}
       - name: Push changes
         run: |
+          git config --global user.name ${{ secrets.USERNAME }}
+          git config --global user.email ${{ secrets.MAIL }}
           git add topographia.info.yml
           git commit -m "Update version"
           git push
