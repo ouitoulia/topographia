@@ -16,6 +16,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Get current date
+        id: date
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "datestamp=$(date +'%s')" >> $GITHUB_OUTPUT
+      - name: Versioning
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: topographia.info.yml
+          write-mode: append
+          contents: |
+      
+            # Information added by Github Action packaging script on ${{ steps.date.outputs.date }}
+            version: '${{  github.ref_name }}'
+            project: 'topographia'
+            datestamp: ${{ steps.date.outputs.datestamp }}
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
