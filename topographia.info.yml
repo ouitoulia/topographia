@@ -28,8 +28,9 @@ project: 'topographia'
 datestamp: 1697452771
 message: ' ci auto'
 
+
 # Information added by GitHub Action packaging script on 2023-10-16
-version: '1.0.34'
+version: '1.0.35'
 project: 'topographia'
-datestamp: 1697453234
-message: ' ci auto '
+datestamp: 1697453354
+message: ' ci auto'
