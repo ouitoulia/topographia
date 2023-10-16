@@ -36,7 +36,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add topographia.info.yml
           git commit -m "Update version"
-          git push origin ${{ github.ref_name }}
+          git push origin $GITHUB_REF
 
       - uses: ncipollo/release-action@v1
         with:
