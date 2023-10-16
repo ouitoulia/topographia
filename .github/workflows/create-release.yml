@@ -69,6 +69,10 @@ jobs:
     runs-on: "ubuntu-latest"
     needs: release
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: 1.x
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
