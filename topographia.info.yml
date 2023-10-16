@@ -23,7 +23,7 @@ dependencies:
   - toc_js:toc_js
 
 # Information added by GitHub Action packaging script on 2023-10-16
-version: '1.0.39'
+version: '1.0.40'
 project: 'topographia'
-datestamp: 1697453680
+datestamp: 1697453727
 message: ' fix version script'
