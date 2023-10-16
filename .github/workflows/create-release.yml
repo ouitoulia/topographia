@@ -2,7 +2,7 @@ name: "Build Release"
 
 on:
   push:
-    tags:
+    branches:
       - '*'
 
 jobs:
@@ -13,37 +13,45 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Get current date
-        id: date
+      - name: Get current date and commit message
+        id: data
         run: |
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
           echo "datestamp=$(date +'%s')" >> $GITHUB_ENV
+          echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
 
-      - name: Versioning
+      - name: Check release tag in commit message
         run: |
-          echo -e "\n# Information added by Github Action packaging script on ${{ env.date }}" >> topographia.info.yml
-          echo "version: '${{ github.ref_name }}'" >> topographia.info.yml
-          echo "project: 'topographia'" >> topographia.info.yml
-          echo "datestamp: ${{ env.datestamp }}" >> topographia.info.yml
+          COMMIT_MESSAGE="${{ env.commit_message }}"
+          if [[ $COMMIT_MESSAGE =~ ^release\(([^)]+)\):(.+)$ ]]; then
+            TAG="${BASH_REMATCH[1]}"
+            MESSAGE="${BASH_REMATCH[2]}"
+            echo "Release tag found: $TAG"
+            echo "Release message: $MESSAGE"
+            echo -e "\n# Information added by Github Action packaging script on ${{ env.date }}" >> topographia.info.yml
+            echo "version: '$TAG'" >> topographia.info.yml
+            echo "project: 'topographia'" >> topographia.info.yml
+            echo "datestamp: ${{ env.datestamp }}" >> topographia.info.yml
+            echo "message: '$MESSAGE'" >> topographia.info.yml
+            git config --global user.email "actions@github.com"
+            git config --global user.name "GitHub Actions"
+            git add topographia.info.yml
+            git commit -m "Update version"
+            git tag $TAG
+            git push origin $TAG
+          else
+            echo "No valid release tag found in commit message. Skipping the action."
+          fi
 
-      - name: Create Release Archive
-        run: |
-          git archive -o release.zip HEAD
-        working-directory: ${{ github.workspace }}
-
-      - name: Push changes
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add topographia.info.yml
-          git commit -m "Update version"
-          git push origin $GITHUB_REF
-
+  create_release:
+    name: "Create Release"
+    runs-on: "ubuntu-latest"
+    needs: release
+    steps:
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: release.zip
