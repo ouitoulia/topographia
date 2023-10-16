@@ -32,7 +32,7 @@ jobs:
           echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
           echo "datestamp=$(date +'%s')" >> $GITHUB_ENV
           echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
-          echo "project_name==$(echo $GITHUB_REPOSITORY | cut -d/ -f2)" >> $GITHUB_ENV
+          echo "project_name=$(echo $GITHUB_REPOSITORY | cut -d/ -f2)" >> $GITHUB_ENV
 
       - name: Check release tag in commit message
         id: check_tag
@@ -44,17 +44,17 @@ jobs:
             if [ -n "$TAG" ] && [ -n "$MESSAGE" ]; then
               echo "Release tag found: $TAG"
           
-              if grep -q "^# Information added by GitHub Action" topographia.info.yml; then
-                sed -i -e '/^# Information added by GitHub Action/,$d' topographia.info.yml
+              if grep -q "^# Information added by GitHub Action" "${{ env.project_name }}.info.yml"; then
+                sed -i -e '/^# Information added by GitHub Action/,$d' "${{ env.project_name }}.info.yml"
               fi
           
-              echo -e "# Information added by GitHub Action packaging script on ${{ env.date }}" >> topographia.info.yml
-              echo "version: '$TAG'" >> topographia.info.yml
-              echo "project: '${{ env.project_name }}'" >> topographia.info.yml
-              echo "datestamp: ${{ env.datestamp }}" >> topographia.info.yml
-              echo "message: '$MESSAGE'" >> topographia.info.yml
+              echo -e "# Information added by GitHub Action packaging script on ${{ env.date }}" >> "${{ env.project_name }}.info.yml"
+              echo "version: '$TAG'" >> "${{ env.project_name }}.info.yml"
+              echo "project: '${{ env.project_name }}'" >> "${{ env.project_name }}.info.yml"
+              echo "datestamp: ${{ env.datestamp }}" >> "${{ env.project_name }}.info.yml"
+              echo "message: '$MESSAGE'" >> "${{ env.project_name }}.info.yml"
           
-              git add topographia.info.yml
+              git add "${{ env.project_name }}.info.yml"
               git commit -m "Update version"
               git push origin
               git tag $TAG
