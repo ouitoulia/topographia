@@ -54,6 +54,7 @@ jobs:
           
               git add topographia.info.yml
               git commit -m "Update version"
+              git push origin
               git tag $TAG
               git push origin $TAG
             else
