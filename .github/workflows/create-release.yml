@@ -33,13 +33,19 @@ jobs:
             if [ -n "$TAG" ] && [ -n "$MESSAGE" ]; then
               echo "Release tag found: $TAG"
               echo "Release message: $MESSAGE"
+          
+              git config --global user.email "actions@github.com"
+              git config --global user.name "GitHub Actions"
+              git branch # debug
+              git checkout 1.x
+              git branch # debug
+          
               echo -e "\n# Information added by Github Action packaging script on ${{ env.date }}" >> topographia.info.yml
               echo "version: '$TAG'" >> topographia.info.yml
               echo "project: 'topographia'" >> topographia.info.yml
               echo "datestamp: ${{ env.datestamp }}" >> topographia.info.yml
               echo "message: '$MESSAGE'" >> topographia.info.yml
-              git config --global user.email "actions@github.com"
-              git config --global user.name "GitHub Actions"
+          
               git add topographia.info.yml
               git commit -m "Update version"
               git tag $TAG
