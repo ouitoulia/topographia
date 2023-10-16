@@ -4,12 +4,10 @@ on:
   push:
     tags:
       - '*'
-#      - '/^\d+\.\d+\.\d+(-\w+)?$/'
 
 jobs:
   release:
     name: "Release"
-
     runs-on: "ubuntu-latest"
     permissions:
       contents: write
@@ -18,36 +16,28 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          # Always release the tip of the default branch
-          ref: 1.x
-      - name: Fixup git permissions
-        # https://github.com/actions/checkout/issues/766
-        shell: bash
-        run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
       - name: Get current date
         id: date
         run: |
-          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-          echo "datestamp=$(date +'%s')" >> $GITHUB_OUTPUT
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "datestamp=$(date +'%s')" >> $GITHUB_ENV
+
       - name: Versioning
-        uses: "DamianReeves/write-file-action@master"
-        with:
-          path: topographia.info.yml
-          write-mode: append
-          contents: |
-      
-            # Information added by Github Action packaging script on ${{ steps.date.outputs.date }}
-            version: '${{  github.ref_name }}'
-            project: 'topographia'
-            datestamp: ${{ steps.date.outputs.datestamp }}
+        run: |
+          echo -e "\n# Information added by Github Action packaging script on ${{ env.date }}" >> topographia.info.yml
+          echo "version: '${{ github.ref_name }}'" >> topographia.info.yml
+          echo "project: 'topographia'" >> topographia.info.yml
+          echo "datestamp: ${{ env.datestamp }}" >> topographia.info.yml
+
       - name: Push changes
         run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
           git add topographia.info.yml
           git commit -m "Update version"
-          git push
+          git push origin HEAD:$GITHUB_REF
+
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
