@@ -26,4 +26,4 @@ dependencies:
 version: '1.0.40'
 project: 'topographia'
 datestamp: 1697453727
-message: ' fix version script'
+message: ' fix version script '
