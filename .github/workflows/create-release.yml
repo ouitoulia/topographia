@@ -68,9 +68,8 @@ jobs:
 
       - name: Create GitHub Release
         if: env.valid_tag == 'true'
-        run: |
-          uses: ncipollo/release-action@v1
-          with:
-            name: ${{ env.release_tag }}
-            tag: ${{ env.release_tag }}
-            token: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v1
+        with:
+          name: ${{ env.release_tag }}
+          tag: ${{ env.release_tag }}
+          token: ${{ secrets.GITHUB_TOKEN }}
