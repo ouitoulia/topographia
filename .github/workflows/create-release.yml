@@ -13,7 +13,7 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
@@ -30,6 +30,11 @@ jobs:
           echo "project: 'topographia'" >> topographia.info.yml
           echo "datestamp: ${{ env.datestamp }}" >> topographia.info.yml
 
+      - name: Create Release Archive
+        run: |
+          git archive -o release.zip HEAD
+        working-directory: ${{ github.workspace }}
+
       - name: Push changes
         run: |
           git config --global user.email "actions@github.com"
@@ -41,3 +46,4 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          files: release.zip
