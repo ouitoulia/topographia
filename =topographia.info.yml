@@ -1,5 +1,0 @@
-# Information added by GitHub Action packaging script on 2023-10-16
-version: '1.0.42'
-project: '=topographia'
-datestamp: 1697454485
-message: ' fix version script 42'
