@@ -16,7 +16,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Push changes
       - name: Fixup git permissions
         # https://github.com/actions/checkout/issues/766
         shell: bash
