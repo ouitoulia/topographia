@@ -22,8 +22,8 @@ dependencies:
   - ouitoulia:themethla
   - toc_js:toc_js
 
-# Information added by GitHub Action packaging script on 2023-10-16
-version: '1.0.47'
+# Information added by GitHub Action packaging script on 2024-02-16
+version: '1.0.48'
 project: 'Topographia'
-datestamp: 1697459121
-message: ' fix release script'
+datestamp: 1708072020
+message: ' up ci to checkout v4 and archive'
