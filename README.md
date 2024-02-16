@@ -1,9 +1,12 @@
 # Topographía
 
+[![Stato del repository: archiviato](https://img.shields.io/badge/stato-archiviato-inactive?style=for-the-badge)](https://github.com/ouitoulia/topographia?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/ouitoulia/topographia?style=for-the-badge)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/ouitoulia/topographia?sort=semver&style=for-the-badge)
 ![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/ouitoulia/topographia/drupal/core-recommended?style=for-the-badge)
 ![Packagist Downloads](https://img.shields.io/packagist/dt/ouitoulia/topographia?style=for-the-badge)
+
+> ⚠ **Questo repository è archiviato. Le funzionalità sono state spostate su `ouitoulia/themethla`**
 
 [Topographía](https://www.grecoantico.com/dizionario-italiano-greco-antico.php?parola=topografia)
 è un modulo Drupal che gestisce il tipo di contenuto Luogo definito nell'[architettura
